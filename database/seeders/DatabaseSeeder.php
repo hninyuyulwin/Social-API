@@ -14,11 +14,28 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        // users
         DB::table('users')->insert([
-            'name' => 'Lavender',
-            'email' => 'lavender@gmail.com',
-            'password' => bcrypt('lavender')
+            'name' => 'Mary',
+            'email' => 'mary@gmail.com',
+            'password' => bcrypt('mary')
+        ]);
+        // feeds
+        DB::table('feeds')->insert([
+            'user_id' => 1,
+            'description' => 'About Description Feed',
+            'image' => 'feed/logo.png'
+        ]);
+        // comments
+        DB::table('comments')->insert([
+            'user_id' => 1,
+            'feed_id' => 1,
+            'comment' => 'Hello Guys Commenting'
+        ]);
+        // likes
+        DB::table('likes')->insert([
+            'user_id' => 1,
+            'feed_id' => 1,
         ]);
     }
 }
